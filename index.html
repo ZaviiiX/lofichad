@@ -21,6 +21,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Favicon / Touch icon -->
+    <link rel="icon" href="assets/square-1x1.jpg" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="assets/square-1x1.jpg" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -46,7 +49,7 @@
 
         <nav class="nav-links" id="navLinks">
           <a href="#about">About</a>
-          <a href="#tokenomics">Tokenomics</a>
+          <a href="#contract">Contract</a>
           <a href="#roadmap">Roadmap</a>
           <a href="#gallery">Gallery</a>
           <a href="#faq">FAQ</a>
@@ -78,8 +81,8 @@
             <a class="btn btn-primary" href="#about">
               <span>Watch live stream</span>
             </a>
-            <a class="btn btn-ghost" href="#tokenomics">
-              <span>View tokenomics</span>
+            <a class="btn btn-ghost" href="#contract">
+              <span>View contract adress</span>
             </a>
           </div>
         </div>
@@ -124,56 +127,22 @@
       </div>
     </section>
 
-    <!-- TOKENOMICS -->
-    <section id="tokenomics" class="section reveal">
+    <!-- CONTRACT -->
+    <section id="contract" class="section reveal">
       <div class="container">
         <div class="section-header">
-          <h2>Tokenomics</h2>
-          <p class="muted">Simple. Transparent. Fair.</p>
+          <h2>Contract</h2>
+          <p class="muted">Verified contract address</p>
         </div>
-        <div class="token-grid">
-          <div class="tok">
-            <div class="tok-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
-              </svg>
+
+        <div class="card contract-card">
+          <div class="container" style="padding:1.25rem 1.5rem;">
+            <div class="contract-row" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+              <label for="copyText" class="muted" style="min-width:48px">CA:</label>
+              <code id="copyText" class="copy-text" style="background:rgba(255,255,255,0.03);padding:0.5rem 0.75rem;border-radius:8px;font-family:monospace;">0xINSERT_CONTRACT_ADDRESS</code>
+              <button id="copyButton" class="btn btn-primary">Copy</button>
             </div>
-            <h3>Symbol</h3>
-            <p class="tok-value">$CHAD</p>
-          </div>
-          <div class="tok">
-            <div class="tok-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.035-.84-1.875-1.875-1.875h-.75zM9.75 8.625c-1.035 0-1.875.84-1.875 1.875v11.25c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V10.5c0-1.035-.84-1.875-1.875-1.875h-.75zM3 15.375c-1.035 0-1.875.84-1.875 1.875v4.5c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875v-4.5c0-1.035-.84-1.875-1.875-1.875H3z" />
-              </svg>
-            </div>
-            <h3>Supply</h3>
-            <p class="tok-value">1,000,000,000</p>
-          </div>
-          <div class="tok">
-            <div class="tok-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm4.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" clip-rule="evenodd" />
-                <path d="M13.5 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-              </svg>
-            </div>
-            <h3>Allocation</h3>
-            <ul class="tok-list">
-              <li><span class="dot"></span>Community: 50%</li>
-              <li><span class="dot"></span>Liquidity: 25%</li>
-              <li><span class="dot"></span>Treasury: 15%</li>
-              <li><span class="dot"></span>Contributors: 10%</li>
-            </ul>
-          </div>
-          <div class="tok">
-            <div class="tok-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path fill-rule="evenodd" d="M14.615 1.585a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0V4.239l-6.22 6.22a.75.75 0 01-1.06 0l-3.47-3.47a.75.75 0 011.06-1.06l2.94 2.94 5.69-5.69h-2.13a.75.75 0 010-1.5h4.5a.75.75 0 01.75.75z" clip-rule="evenodd" />
-                <path d="M3.75 12a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zM3 15.75a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zM3.75 19.5a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75z" />
-              </svg>
-            </div>
-            <h3>Taxes</h3>
-            <p class="tok-value">0% buy • 0% sell</p>
+            <p class="muted" style="margin-top:0.75rem;">Click <strong>Copy</strong> to copy the contract address to your clipboard.</p>
           </div>
         </div>
       </div>

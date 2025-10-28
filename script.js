@@ -92,6 +92,26 @@ const initScrollReveal = () => {
   revealElements.forEach((el) => revealObserver.observe(el));
 };
 
+// ===== COPY TO CLIPBOARD =====
+const initCopyToClipboard = () => {
+  const copyButton = document.getElementById('copyButton');
+  const copyText = document.getElementById('copyText');
+  
+  if (!copyButton || !copyText) return;
+  
+  copyButton.addEventListener('click', () => {
+    const textToCopy = copyText.innerText;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      copyButton.innerText = 'Copied!';
+      setTimeout(() => {
+        copyButton.innerText = 'Copy';
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  });
+};
+
 // ===== NAV BACKGROUND ON SCROLL =====
 const initNavScroll = () => {
   const nav = document.querySelector('.nav');
@@ -294,31 +314,29 @@ const initCursorGlow = () => {
 
 // ===== INITIALIZE ALL =====
 const init = () => {
-  // Wait for DOM to be fully loaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-    return;
-  }
-  
-  // Initialize all features
+  // Initialize all features when DOM is ready
   initNavigation();
   initSmoothScroll();
   initScrollReveal();
   initNavScroll();
   initForm();
   initFAQ();
+  initCopyToClipboard();
   updateFooterYear();
   initLazyLoading();
-  
+
   // Optional: cursor glow effect (comment out if too much)
   // initCursorGlow();
-  
+
   // Add loaded class to body for any CSS transitions
   document.body.classList.add('loaded');
 };
 
-// Start initialization
-init();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
 
 // ===== EXPORT FOR POTENTIAL MODULE USE =====
 if (typeof module !== 'undefined' && module.exports) {
@@ -326,6 +344,7 @@ if (typeof module !== 'undefined' && module.exports) {
     initNavigation,
     initSmoothScroll,
     initScrollReveal,
-    initForm
+    initForm,
+    initCopyToClipboard
   };
 }
